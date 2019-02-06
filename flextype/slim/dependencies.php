@@ -16,7 +16,3 @@ $container['view'] = function ($c) {
 
     return $view;
 };
-
-$container['test'] = function($c) {
-    return 'test';
-};

@@ -8,8 +8,16 @@ use Slim\Http\Response;
 // Define named route
 $app->get('/{uri:.+}', function (Request $request, Response $response, array $args) {
 
-    var_dump(Entries::getEntry($args['uri']));
-    //return $this->view->render($response, 'templates/default.html', [
-    //    'uri' => $args['uri']
-    //]);
+    $entry = Flextype::getEntry($args['uri']);
+
+    if ($entry === null) {
+        $entry['title'] = 'Error404';
+        $entry['content'] = 'Error404';
+        $entry['template'] = 'default';
+    }
+
+    return $this->view->render($response, 'templates/'.$entry['template'].'.html', [
+        'entry' => $entry
+    ]);
+
 })->setName('entries');

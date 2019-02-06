@@ -1,20 +1,10 @@
 {% extends "partials/base.html" %}
 
-{% block title %}Index{% endblock %}
-{% block head %}
-    {{ parent() }}
-    <style type="text/css">
-        .important { color: #336699; }
-    </style>
-{% endblock %}
-{% block content %}
-    <h1>Index</h1>
-    <p class="important">
-        Welcome to my awesome homepage!
-    </p>
-    <p>
-        {{ uri }}
+{% block title %}{{ entry.title }}{% endblock %}
 
-        {% if is_current_path('entries', { 'uri': uri }) %}YES{% endif %}
+{% block content %}
+    <h1>{{ entry.title }}</h1>
+    <p class="important">
+        {{ entry.content }}
     </p>
 {% endblock %}

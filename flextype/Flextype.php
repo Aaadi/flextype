@@ -18,11 +18,13 @@ class Flextype {
     public static $entries = [
         'home' => [
             'title' => 'Home',
-            'content' => 'Home content'
+            'content' => 'Home content',
+            'template' => 'default'
         ],
         'about' => [
             'title' => 'About',
-            'content' => 'About content'
+            'content' => 'About content',
+            'template' => 'default'
         ],
     ];
 
@@ -31,9 +33,9 @@ class Flextype {
         return Flextype::$entries[$entry];
     }
 
-    public static function getEntryField($entry, $field)
+    public static function getEntries($entry)
     {
-        return Flextype::$entries[$entry][$field];
+        return Flextype::$entries[$entry];
     }
 
     public static function createEntry($entry, $data)
